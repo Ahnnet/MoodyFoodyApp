@@ -41,16 +41,28 @@
 
     <TextView
         android:id="@+id/tx2"
-        android:layout_width="300dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Now You Are Happy!"
+        android:text="Now You Are"
         android:textColor="#BEF47236"
         android:textSize="28sp"
         android:textStyle="bold"
         android:gravity="center"
+        android:layout_marginRight="80dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tx1" />
+
+    <TextView
+        android:id="@+id/tx3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Happy!"
+        android:textColor="#3F51B5"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/tx2"
+        app:layout_constraintTop_toTopOf="@+id/tx2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

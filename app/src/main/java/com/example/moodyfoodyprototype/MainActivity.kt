@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
@@ -14,6 +15,7 @@ import com.example.moodyfoodyprototype.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
+    lateinit var dataUri: Uri
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,12 +27,12 @@ class MainActivity : AppCompatActivity() {
 //            ActivityCompat.requirePermissions(this, Manifest.permission.WRITE_EXTERNAL_STORAGE), 101)
             permission()
             loadImage()
-
         }
 
         /* button analyze */
         binding.btnAnalyze.setOnClickListener {
             var intent = Intent(this, MoodyActivity::class.java)
+            intent.putExtra("uri", dataUri.toString())
             startActivity(intent)
         }
     }
