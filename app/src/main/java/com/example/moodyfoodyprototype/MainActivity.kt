@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
                 var dataUri = data?.data
                 try{
                     /* get the image to 'userPhoto' */
-                    var userPhoto : Bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, dataUri)
+                    var userPhoto : Bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, dataUri) 
                     binding.imgUser.setImageBitmap(userPhoto)
                 }catch(e:Exception){
                     Toast.makeText(this,"$e",Toast.LENGTH_SHORT).show()
