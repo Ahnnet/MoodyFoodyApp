@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if(requestCode == 0){
             if(resultCode == RESULT_OK){
-                var dataUri = data?.data
+                dataUri = data?.data!!
                 try{
                     /* get the image to 'userPhoto' */
                     var userPhoto : Bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, dataUri) 
