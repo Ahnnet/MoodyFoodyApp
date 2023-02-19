@@ -8,6 +8,7 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
+import android.view.View
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -53,6 +54,7 @@ class MainActivity : AppCompatActivity() {
                     /* get the image to 'userPhoto' */
                     var userPhoto : Bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, dataUri) 
                     binding.imgUser.setImageBitmap(userPhoto)
+                    binding.imgUser.visibility = View.VISIBLE
                 }catch(e:Exception){
                     Toast.makeText(this,"$e",Toast.LENGTH_SHORT).show()
                 }
