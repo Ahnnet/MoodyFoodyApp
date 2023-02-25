@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             else{
-                Toast.makeText(this,"album access failed",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"album access failed ",Toast.LENGTH_SHORT).show()
             }
         }
     }
