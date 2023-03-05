@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.graphics.Paint
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -35,17 +36,22 @@ class MainActivity : AppCompatActivity() {
         binding.btnAnalyze.setOnClickListener {
             // loading...
             binding.iconLoading.visibility=View.VISIBLE
+            binding.txLoading.visibility=View.VISIBLE
+
+            // loading alpha setting
+            var paint = Paint()
+            paint.alpha = 80
+            binding.parentLayout.setBackgroundColor(paint.color)
+            binding.imgUser.setColorFilter(paint.color)
+            binding.imgLogo.setColorFilter(paint.color)
+
+            // change activity (MoodyActivity) after delay.
             var handler = Handler()
             handler.postDelayed({
                 var intent = Intent(this, MoodyActivity::class.java)
                 intent.putExtra("uri", dataUri.toString())
                 startActivity(intent)
             }, 3000)
-
-            // change activity (MoodyActivity)
-//            var intent = Intent(this, MoodyActivity::class.java)
-//            intent.putExtra("uri", dataUri.toString())
-//            startActivity(intent)
         }
     }
 
