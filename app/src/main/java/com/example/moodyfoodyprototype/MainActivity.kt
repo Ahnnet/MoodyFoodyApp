@@ -7,6 +7,7 @@ import android.graphics.Bitmap
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.provider.MediaStore
 import android.view.View
 import android.widget.Toast
@@ -33,11 +34,18 @@ class MainActivity : AppCompatActivity() {
         /* button analyze */
         binding.btnAnalyze.setOnClickListener {
             // loading...
+            binding.iconLoading.visibility=View.VISIBLE
+            var handler = Handler()
+            handler.postDelayed({
+                var intent = Intent(this, MoodyActivity::class.java)
+                intent.putExtra("uri", dataUri.toString())
+                startActivity(intent)
+            }, 3000)
 
             // change activity (MoodyActivity)
-            var intent = Intent(this, MoodyActivity::class.java)
-            intent.putExtra("uri", dataUri.toString())
-            startActivity(intent)
+//            var intent = Intent(this, MoodyActivity::class.java)
+//            intent.putExtra("uri", dataUri.toString())
+//            startActivity(intent)
         }
     }
 
