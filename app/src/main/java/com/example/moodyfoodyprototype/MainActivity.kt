@@ -32,6 +32,9 @@ class MainActivity : AppCompatActivity() {
 
         /* button analyze */
         binding.btnAnalyze.setOnClickListener {
+            // loading...
+
+            // change activity (MoodyActivity)
             var intent = Intent(this, MoodyActivity::class.java)
             intent.putExtra("uri", dataUri.toString())
             startActivity(intent)
