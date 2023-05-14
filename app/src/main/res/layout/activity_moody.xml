@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MoodyActivity"
-    android:padding="10dp">
+    android:padding="10dp"
+    tools:context=".MoodyActivity">
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:layout_width="250dp"
@@ -29,12 +29,12 @@
         android:id="@+id/tx1"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
         android:text="Analyze Complete!"
         android:textColor="#BEF47236"
         android:textSize="28sp"
         android:textStyle="bold"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/img_user" />
@@ -43,12 +43,12 @@
         android:id="@+id/tx2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginRight="80dp"
+        android:gravity="center"
         android:text="Now You Are"
         android:textColor="#BEF47236"
         android:textSize="28sp"
         android:textStyle="bold"
-        android:gravity="center"
-        android:layout_marginRight="80dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,5 +64,13 @@
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/tx2"
         app:layout_constraintTop_toTopOf="@+id/tx2" />
+
+    <ImageButton
+        android:id="@+id/btn_insta"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/instagram_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
