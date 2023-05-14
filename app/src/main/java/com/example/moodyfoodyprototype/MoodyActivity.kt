@@ -1,6 +1,8 @@
 package com.example.moodyfoodyprototype
 
+import android.Manifest
 import android.content.Context
+import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.media.projection.MediaProjection
 import android.media.projection.MediaProjectionManager
@@ -17,6 +19,9 @@ import com.example.moodyfoodyprototype.databinding.ActivityMoodyBinding
 class MoodyActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMoodyBinding
+    private val REQUEST_CODE_SCREEN_CAPTURE = 1
+    private val REQUEST_CODE_SAVE_IMAGE = 2
+
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +33,15 @@ class MoodyActivity : AppCompatActivity() {
         binding.imgUser.setImageBitmap(userPhoto)
 
         /* instagram screen capture */
-        binding.btnInsta.setOnClickListener { screenCapture() }
+        binding.btnInsta.setOnClickListener {
+            if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                requestPermissions(arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), REQUEST_CODE_SAVE_IMAGE)
+            }
+            if (checkSelfPermission(Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+                requestPermissions(arrayOf(Manifest.permission.RECORD_AUDIO), REQUEST_CODE_SCREEN_CAPTURE)
+            }
+            screenCapture()
+        }
 
 
 
