@@ -1,2 +1,2 @@
 # MoodyFoodyApp
-Android
+Android App
